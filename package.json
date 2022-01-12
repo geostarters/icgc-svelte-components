@@ -1,0 +1,90 @@
+{
+    "name": "@geostarters/icgc-svelte-components",
+    "version": "0.0.1",
+    "description": "Svelte Components for webmapping",
+    "author": "geostarters",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "svelte": "src/export.js",
+    "files": [
+        "dist",
+        "src/export.js",
+        "src/components"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/geostarters/icgc-svelte-components"
+    },
+    "bugs": {
+        "url": "https://github.com/geostarters/icgc-svelte-components/issues"
+    },
+    "keywords": [
+        "Svelte",
+        "Components",
+        "npm",
+        "Maps",
+        "Vector Tiles"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "start": "sirv public",
+        "test": "jest --watchAll",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.16.5",
+        "@rollup/plugin-commonjs": "^17.0.0",
+        "@rollup/plugin-node-resolve": "^11.0.0",
+        "@storybook/addon-actions": "^6.4.9",
+        "@storybook/addon-essentials": "^6.4.9",
+        "@storybook/addon-links": "^6.4.9",
+        "@storybook/addon-svelte-csf": "^1.1.0",
+        "@storybook/svelte": "^6.4.9",
+        "@storybook/addon-interactions": "^6.4.0",
+        "@storybook/testing-library": "^0.0.7",
+        "@testing-library/jest-dom": "^5.16.1",
+        "@testing-library/svelte": "^3.0.3",
+        "babel-loader": "^8.2.3",
+        "jest": "^27.4.5",
+        "jest-transform-svelte": "^2.1.1",
+        "rollup": "^2.3.4",
+        "rollup-plugin-css-only": "^3.1.0",
+        "rollup-plugin-livereload": "^2.0.0",
+        "rollup-plugin-svelte": "^7.0.0",
+        "rollup-plugin-terser": "^7.0.0",
+        "rollup-plugin-copy-assets": "^2.0.3",
+        "svelte": "^3.44.3",
+        "svelte-loader": "^3.1.2"
+    },
+    "dependencies": {
+        "npm-check-updates": "^12.0.5",
+        "sirv-cli": "^1.0.0",
+        "svelte-material-ui": "^6.0.0-beta.11"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.js$": "babel-jest",
+            "^.+\\.svelte$": "jest-transform-svelte"
+        },
+        "moduleFileExtensions": [
+            "js",
+            "svelte",
+            "json"
+        ],
+        "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+            "\\.(css|scss|stylesheet)$": "<rootDir>/__mocks__/styleMock.js"
+        },
+        "setupFilesAfterEnv": [
+            "@testing-library/jest-dom/extend-expect"
+        ],
+        "testPathIgnorePatterns": [
+            "/node_modules/",
+            "/build/",
+            "/storybook-static/"
+        ]
+    }
+}

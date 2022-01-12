@@ -1,0 +1,8 @@
+/node_modules/
+/public/
+/__mocks__/
+/.storybook/
+.DS_Store
+build-storybook.log
+/scripts/
+/src/stories/
