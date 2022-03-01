@@ -60,7 +60,7 @@ Svelte code
 *You need [Node.js](https://nodejs.org) installed*
 
 ```bash
-git clone http://172.17.28.68/svelte/icgc-svelte-components.git
+git clone https://github.com/geostarters/icgc-svelte-components.git
 
 cd icgc-svelte-components
 
