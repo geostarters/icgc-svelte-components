@@ -14,6 +14,33 @@
         { id: "water", name: "Aigua2", layout: { visibility: "none" } },
     ];
 	let change;
+	let layerTree = [
+    {
+      groupLabel: "Dipòsits quaternaris",
+      groupId: "opt_quaternari",
+      items: [
+        { label: "Elements g", value: "Elements_geomorfologics" },
+        { label: "Contactes", value: "Contactes_del_quaternari" },
+        { label: "Unitats geològiques", value: "FILLq,PATT1q,LABELq/label" },
+      ],
+    },
+
+    {
+      groupLabel: "Basament prequaternari",
+      groupId: "opt_basament",
+      items: [
+        { label: "Contactes", value: "Contactes_del_basament" },
+        {
+          label: "Falles i plecs",
+          value: "gt125mv10sh0ffl1r010_202101,gt125mv10sh0ffl1r010_202101_5513",
+        },
+        {
+          label: "Unitats geològiques",
+          value: "FILL,PATT1,PATT2,PATT3,PATT4,LABEL/label",
+        },
+      ],
+    },
+  ];
 	function canvi(e){
 		console.info(e.detail);
 		change = `${e.detail.id} : ${e.detail.checked}`; 
@@ -28,8 +55,8 @@
 	
 	<pre class="status">Selected: {selected.join(', ')}</pre>
 	<pre class="status">Onchange: {change}</pre>
-	<OverLayersIcgc />
-<SliderOpacity {item}/>
+<OverLayersIcgc {layerTree}/>
+	<SliderOpacity {item}/>
 </main>
 
 <style>

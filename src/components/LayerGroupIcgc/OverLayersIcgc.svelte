@@ -2,7 +2,7 @@
   import LayerGroupIcgc from "./LayerGroupIcgc.svelte";
 
   let display = false;
-  let layerTree = [
+  export let layerTree = [
     {
       groupLabel: "Dipòsits quaternaris",
       groupId: "opt_quaternari",
