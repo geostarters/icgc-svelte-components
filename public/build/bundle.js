@@ -6703,7 +6703,11 @@ var app = (function () {
     			mount_component(layergroupicgc, target, anchor);
     			current = true;
     		},
-    		p: noop,
+    		p: function update(ctx, dirty) {
+    			const layergroupicgc_changes = {};
+    			if (dirty & /*layerTree*/ 1) layergroupicgc_changes.layer = /*layer*/ ctx[2];
+    			layergroupicgc.$set(layergroupicgc_changes);
+    		},
     		i: function intro(local) {
     			if (current) return;
     			transition_in(layergroupicgc.$$.fragment, local);
@@ -6759,11 +6763,11 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(h3, file$2, 51, 2, 1186);
+    			add_location(h3, file$2, 51, 2, 1193);
     			attr_dev(div0, "id", "capaselect");
     			attr_dev(div0, "class", "container list svelte-1sky1jl");
-    			add_location(div0, file$2, 53, 2, 1219);
-    			add_location(div1, file$2, 50, 0, 1177);
+    			add_location(div0, file$2, 53, 2, 1226);
+    			add_location(div1, file$2, 50, 0, 1184);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6849,7 +6853,7 @@ var app = (function () {
     	validate_slots('OverLayersIcgc', slots, []);
     	let display = false;
 
-    	let layerTree = [
+    	let { layerTree = [
     		{
     			groupLabel: "Dipòsits quaternaris",
     			groupId: "opt_quaternari",
@@ -6886,13 +6890,17 @@ var app = (function () {
     				}
     			]
     		}
-    	];
+    	] } = $$props;
 
-    	const writable_props = [];
+    	const writable_props = ['layerTree'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<OverLayersIcgc> was created with unknown prop '${key}'`);
     	});
+
+    	$$self.$$set = $$props => {
+    		if ('layerTree' in $$props) $$invalidate(0, layerTree = $$props.layerTree);
+    	};
 
     	$$self.$capture_state = () => ({ LayerGroupIcgc, display, layerTree });
 
@@ -6911,7 +6919,7 @@ var app = (function () {
     class OverLayersIcgc extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, { layerTree: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -6919,6 +6927,14 @@ var app = (function () {
     			options,
     			id: create_fragment$2.name
     		});
+    	}
+
+    	get layerTree() {
+    		throw new Error("<OverLayersIcgc>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set layerTree(value) {
+    		throw new Error("<OverLayersIcgc>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 
@@ -7103,7 +7119,7 @@ var app = (function () {
     	buttonicgc = new ButtonIcgc({ props: { label: "bt" }, $$inline: true });
 
     	function layertreeicgc_group_binding(value) {
-    		/*layertreeicgc_group_binding*/ ctx[6](value);
+    		/*layertreeicgc_group_binding*/ ctx[7](value);
     	}
 
     	let layertreeicgc_props = {
@@ -7120,8 +7136,12 @@ var app = (function () {
     		});
 
     	binding_callbacks.push(() => bind(layertreeicgc, 'group', layertreeicgc_group_binding));
-    	layertreeicgc.$on("Change", /*canvi*/ ctx[5]);
-    	overlayersicgc = new OverLayersIcgc({ $$inline: true });
+    	layertreeicgc.$on("Change", /*canvi*/ ctx[6]);
+
+    	overlayersicgc = new OverLayersIcgc({
+    			props: { layerTree: /*layerTree*/ ctx[5] },
+    			$$inline: true
+    		});
 
     	slideropacity = new SliderOpacity({
     			props: { item: /*item*/ ctx[3] },
@@ -7154,13 +7174,13 @@ var app = (function () {
     			t13 = space();
     			create_component(slideropacity.$$.fragment);
     			attr_dev(h1, "class", "svelte-1tky8bj");
-    			add_location(h1, file, 22, 1, 811);
+    			add_location(h1, file, 49, 1, 1623);
     			attr_dev(pre0, "class", "status");
-    			add_location(pre0, file, 28, 1, 1061);
+    			add_location(pre0, file, 55, 1, 1873);
     			attr_dev(pre1, "class", "status");
-    			add_location(pre1, file, 29, 1, 1121);
+    			add_location(pre1, file, 56, 1, 1933);
     			attr_dev(main, "class", "svelte-1tky8bj");
-    			add_location(main, file, 21, 0, 802);
+    			add_location(main, file, 48, 0, 1614);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7270,6 +7290,45 @@ var app = (function () {
 
     	let change;
 
+    	let layerTree = [
+    		{
+    			groupLabel: "Dipòsits quaternaris",
+    			groupId: "opt_quaternari",
+    			items: [
+    				{
+    					label: "Elements g",
+    					value: "Elements_geomorfologics"
+    				},
+    				{
+    					label: "Contactes",
+    					value: "Contactes_del_quaternari"
+    				},
+    				{
+    					label: "Unitats geològiques",
+    					value: "FILLq,PATT1q,LABELq/label"
+    				}
+    			]
+    		},
+    		{
+    			groupLabel: "Basament prequaternari",
+    			groupId: "opt_basament",
+    			items: [
+    				{
+    					label: "Contactes",
+    					value: "Contactes_del_basament"
+    				},
+    				{
+    					label: "Falles i plecs",
+    					value: "gt125mv10sh0ffl1r010_202101,gt125mv10sh0ffl1r010_202101_5513"
+    				},
+    				{
+    					label: "Unitats geològiques",
+    					value: "FILL,PATT1,PATT2,PATT3,PATT4,LABEL/label"
+    				}
+    			]
+    		}
+    	];
+
     	function canvi(e) {
     		console.info(e.detail);
     		$$invalidate(2, change = `${e.detail.id} : ${e.detail.checked}`);
@@ -7301,6 +7360,7 @@ var app = (function () {
     		item,
     		mapLayersArray,
     		change,
+    		layerTree,
     		canvi
     	});
 
@@ -7310,6 +7370,7 @@ var app = (function () {
     		if ('item' in $$props) $$invalidate(3, item = $$props.item);
     		if ('mapLayersArray' in $$props) $$invalidate(4, mapLayersArray = $$props.mapLayersArray);
     		if ('change' in $$props) $$invalidate(2, change = $$props.change);
+    		if ('layerTree' in $$props) $$invalidate(5, layerTree = $$props.layerTree);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -7322,6 +7383,7 @@ var app = (function () {
     		change,
     		item,
     		mapLayersArray,
+    		layerTree,
     		canvi,
     		layertreeicgc_group_binding
     	];
