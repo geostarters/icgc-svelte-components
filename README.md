@@ -11,49 +11,58 @@ A lib of Svelte Components
 ## To use components
 
 Installation
-```
+```bash
 npm i @geostarters/icgc-svelte-components --save
 ```
 
-Svelte code
+Svelte sample code
 
 ```javascript
- import {LogoIcgc, ButtonIcgc, LayerTreeIcgc, OverLayersIcgc, SliderOpacityIcgc} from "@geostarters/icgc-svelte-components";
+ import {LogoIcgc,
+         ButtonIcgc,
+         LayerTreeIcgc,
+         OverLayersIcgc,
+         SliderOpacityIcgc} from "@geostarters/icgc-svelte-components";
 
  <LogoIcgc type="white"/>
- <ButtonIcgc label="button" />
- <LayerTreeIcgc {mapLayersArray} on:Change={change} bind:group={selected} />
- <OverLayersIcgc {layerTree} />
- <SliderOpacityIcgc />
 
+ <ButtonIcgc label="button" />
+
+ <LayerTreeIcgc {mapLayersArray} on:Change={change} bind:group={selected} />
+ 
+ <OverLayersIcgc {layerTree} />
+
+ <SliderOpacityIcgc />
 ```
 
 ### Components
 
 
-  ```<LogoIcgc/>```
+```<LogoIcgc/>```
 
   *Properties*
-```svelte
+```javascript
   type: "color"|| white;
-  href :url to link || "https://www.icgc.cat";
-  src : url to logo || default url logos;
-  style : css style || "position: absolute;z-index: 1000;right: 50px;bottom:10px";
+  href :"url to link" || "https://www.icgc.cat";
+  src : "url to logo" || default url logos;
+  style : "css style" || "position: absolute;z-index: 1000;right: 50px;bottom:10px";
 ```
 <hr>
 
   ```<ButtonIcgc/>```
 
   *Properties*
-```svelte
-   style : css style || "background: #c8ffe7";
+```javascript
+   style : "css style" || "background: #c8ffe7";
 ```
 <hr>
 
-```<LayerTreeIcgc/>```
+```javascript
+<LayerTreeIcgc/>
+```
 
   *Properties*
-```svelte
+```javascript
    mapLayersArray : layers array || [
         { id: "building", name: "Edificis", checked: true },
         { id: "place", name: "Llocs", checked: false },
@@ -61,7 +70,7 @@ Svelte code
     ];
 ```
 *Events*
-```svelte
+```javascript
    on:change={ }
 ```
 
@@ -70,7 +79,7 @@ Svelte code
 ```<OverLayersIcgc/>```
 
   *Properties*
-```svelte
+```javascript
    layerTree : layers array || [
         	{
 			groupLabel: "Group 1",
@@ -114,7 +123,7 @@ Svelte code
     ];
 ```
 *Events*
-```svelte
+```javascript
    on:change={ }
    on:click={}
 ```
@@ -124,7 +133,7 @@ Svelte code
   ```<SliderOpacityIcgc/>```
 
   *Properties*
-```svelte
+```javascript
       type="range"
       min="0"
       max="100"
@@ -132,7 +141,7 @@ Svelte code
       value="50";
 ```
 *Events*
-```svelte
+```javascript
    on:change={ }
 ```
 <hr>
