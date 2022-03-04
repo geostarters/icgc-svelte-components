@@ -1,63 +1,66 @@
 <script>
-	
 	import ButtonIcgc from "./components/ButtonIcgc.svelte";
 	import LogoIcgc from "./components/LogoIcgc.svelte";
 	import LayerTreeIcgc from "./components/LayerTreeIcgc.svelte";
 	import OverLayersIcgc from "./components/LayerGroupIcgc/OverLayersIcgc.svelte";
-	import SliderOpacity from "./components/SliderOpacity.svelte";
+	import SliderOpacityIcgc from "./components/SliderOpacityIcgc.svelte";
 	export let name;
 	let selected = ["water"];
-	let item = 'Layer1'
+	let item = "Layer1";
 	let mapLayersArray = [
-        { id: "building", name: "Edificis2", layout: { visibility: "none" } },
-        { id: "place", name: "Llocs2", layout: { visibility: "visible" } },
-        { id: "water", name: "Aigua2", layout: { visibility: "none" } },
-    ];
+		{ id: "building", name: "Edificis2", layout: { visibility: "none" } },
+		{ id: "place", name: "Llocs2", layout: { visibility: "visible" } },
+		{ id: "water", name: "Aigua2", layout: { visibility: "none" } },
+	];
 	let change;
+
 	let layerTree = [
-    {
-      groupLabel: "Dipòsits quaternaris",
-      groupId: "opt_quaternari",
-      items: [
-        { label: "Elements g", value: "Elements_geomorfologics" },
-        { label: "Contactes", value: "Contactes_del_quaternari" },
-        { label: "Unitats geològiques", value: "FILLq,PATT1q,LABELq/label" },
-      ],
-    },
+		{
+			groupLabel: "Group 1",
+			groupId: "opt_group1",
+			items: [
+				{
+					label: "Layer 1",
+					id: "layer1",
+					layout: { visibility: "none" },
+				},
+				{
+					label: "Layer 2",
+					id: "layer2",
+					layout: { visibility: "none" },
+				},
+				{
+					label: "Layer 3",
+					id: "layer3",
+					layout: { visibility: "visible" },
+				},
+			],
+		},
 
-    {
-      groupLabel: "Basament prequaternari",
-      groupId: "opt_basament",
-      items: [
-        { label: "Contactes", value: "Contactes_del_basament" },
-        {
-          label: "Falles i plecs",
-          value: "gt125mv10sh0ffl1r010_202101,gt125mv10sh0ffl1r010_202101_5513",
-        },
-        {
-          label: "Unitats geològiques",
-          value: "FILL,PATT1,PATT2,PATT3,PATT4,LABEL/label",
-        },
-      ],
-    },
-  ];
-	function canvi(e){
+		{
+			groupLabel: "Group 2",
+			groupId: "opt_group2",
+			items: [
+				{ label: "Layer A", id: "layerA" },
+				{
+					label: "Layer B",
+					id: "layerB",
+					layout: { visibility: "none" },
+				},
+				{
+					label: "Layer C",
+					id: "layerC",
+					layout: { visibility: "none" },
+				},
+			],
+		},
+	];
+	function changeStatus(e) {
 		console.info(e.detail);
-		change = `${e.detail.id} : ${e.detail.checked}`; 
+		change = `${e.detail.id} : ${e.detail.checked}`;
 	}
-</script>
-<main>
-	<h1>Holas {name}!</h1>
 
-	<LogoIcgc style ="position: absolute;z-index: 1000;left: 5px;bottom:10px;background-color:black" type="white"/>
-	<ButtonIcgc label="bt" />
-	<LayerTreeIcgc {mapLayersArray} on:Change={canvi}  bind:group={selected} />
-	
-	<pre class="status">Selected: {selected.join(', ')}</pre>
-	<pre class="status">Onchange: {change}</pre>
-<OverLayersIcgc {layerTree}/>
-	<SliderOpacity {item}/>
-</main>
+</script>
 
 <style>
 	main {
@@ -79,4 +82,33 @@
 			max-width: none;
 		}
 	}
+
 </style>
+
+<main>
+	<div style="background-color:#F59E1B">
+		<LogoIcgc
+		style="padding-left: 2px;padding-top: 2px;"
+		type="white" />
+	</div>
+	
+	<h1>Hi {name}!</h1>
+	<hr />
+	<div id="divComponents">
+		<h4>Button:</h4>
+		<ButtonIcgc label="button" />
+		<h4 >LayerTree:</h4>
+		<LayerTreeIcgc
+			{mapLayersArray}
+			on:Change={changeStatus}
+			bind:group={selected} />
+
+		<pre class="status">Selected: {selected.join(', ')}</pre>
+		<pre class="status">Onchange: {change}</pre>
+
+		<h4 >OverLayers:</h4>
+		<OverLayersIcgc {layerTree} />
+		<h4 >SliderOpacity:</h4>
+		<SliderOpacityIcgc {item} />
+	</div>
+</main>

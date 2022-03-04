@@ -16,9 +16,12 @@ npm i @geostarters/icgc-svelte-components --save
 Svelte code
 
 ```javascript
- import {LogoIcgc} from "@geostarters/icgc-svelte-components";
+ import {LogoIcgc, ButtonIcgc, LayerTreeIcgc, OverLayersIcgc, SliderOpacityIcgc} from "@geostarters/icgc-svelte-components";
 
  <LogoIcgc type="white"/>
+ <ButtonIcgc label="button" />
+ <LayerTreeIcgc {mapLayersArray} on:Change={change} bind:group={selected} />
+ <OverLayersIcgc {layerTree} />
 
 ```
 
@@ -33,6 +36,14 @@ Svelte code
   href :url to link || "https://www.icgc.cat";
   src : url to logo || default url logos;
   style : css style || "position: absolute;z-index: 1000;right: 50px;bottom:10px";
+```
+<hr>
+
+  ```<ButtonIcgc/>```
+
+  *Properties*
+```bash
+   style : css style || "background: #c8ffe7";
 ```
 <hr>
 
@@ -52,6 +63,77 @@ Svelte code
 ```
 
 <hr>
+
+```<OverLayersIcgc/>```
+
+  *Properties*
+```bash
+   layerTree : layers array || [
+        	{
+			groupLabel: "Group 1",
+			groupId: "opt_group1",
+			items: [
+				{
+					label: "Layer 1",
+					id: "layer1",
+					layout: { visibility: "none" },
+				},
+				{
+					label: "Layer 2",
+					id: "layer2",
+					layout: { visibility: "none" },
+				},
+				{
+					label: "Layer 3",
+					id: "layer3",
+					layout: { visibility: "visible" },
+				},
+			],
+		},
+
+		{
+			groupLabel: "Group 2",
+			groupId: "opt_group2",
+			items: [
+				{ label: "Layer A", id: "layerA" },
+				{
+					label: "Layer B",
+					id: "layerB",
+					layout: { visibility: "none" },
+				},
+				{
+					label: "Layer C",
+					id: "layerC",
+					layout: { visibility: "none" },
+				},
+			],
+		},
+    ];
+```
+*Events*
+```bash
+   on:change={ }
+   on:click={}
+```
+
+<hr>
+
+  ```<SliderOpacityIcgc/>```
+
+  *Properties*
+```bash
+      type="range"
+      min="0"
+      max="100"
+      step="0"
+      value="50";
+```
+*Events*
+```bash
+   on:change={ }
+```
+<hr>
+
 
 ## To develope components
 

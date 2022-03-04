@@ -32,8 +32,11 @@
     />
 </svelte:head>
 
-<Button on:click={onClick} >
+<Button on:click={onClick} style="background: #c8ffe7">
     <Label >{label}</Label>
 </Button>
 
 
+<style>
+    
+</style>
