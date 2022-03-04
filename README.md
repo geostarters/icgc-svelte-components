@@ -1,7 +1,7 @@
 # @geostarters/icgc-svelte-components
 
 [![npm version](https://badge.fury.io/js/%40geostarters%2Ficgc-svelte-components.svg)](https://badge.fury.io/js/%40geostarters%2Ficgc-svelte-components)
-[![Build Status Linux](https://travis-ci.org/geostarters/icgc-svelte-components.svg?branch=main)](https://travis-ci.org/geostarters/icgc-svelte-components)
+[![Build Status Linux](https://travis-ci.com/geostarters/icgc-svelte-components.svg?branch=main)](https://travis-ci.com/geostarters/icgc-svelte-components)
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
