@@ -22,6 +22,7 @@ Svelte code
  <ButtonIcgc label="button" />
  <LayerTreeIcgc {mapLayersArray} on:Change={change} bind:group={selected} />
  <OverLayersIcgc {layerTree} />
+ <SliderOpacityIcgc />
 
 ```
 

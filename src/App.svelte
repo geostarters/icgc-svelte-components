@@ -109,6 +109,6 @@
 		<h4 >OverLayers:</h4>
 		<OverLayersIcgc {layerTree} />
 		<h4 >SliderOpacity:</h4>
-		<SliderOpacityIcgc {item} />
+		<SliderOpacityIcgc />
 	</div>
 </main>

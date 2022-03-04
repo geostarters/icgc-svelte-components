@@ -1,6 +1,6 @@
 {
     "name": "@geostarters/icgc-svelte-components",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "Svelte Components for webmapping",
     "author": "geostarters",
     "main": "dist/index.js",
