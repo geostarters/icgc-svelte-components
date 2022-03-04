@@ -1,12 +1,8 @@
 <script>
-  import { getContext } from "svelte";
-
-  export let item;
-
-  const changePaintProperty = getContext("changePaintProperty");
+  let opacity = "50";
 
   function changeOpacity(e) {
-    console.log("event target", event.target.value);
+    opacity = event.target.value;
   }
 
 </script>
@@ -41,7 +37,6 @@
 </style>
 
 <div class="map-overlay top">
-  <h3>Slider Opacity:</h3>
   <div class="map-overlay-inner">
     <input
       on:change={changeOpacity}
@@ -51,4 +46,5 @@
       step="0"
       value="50" />
   </div>
+  <pre class="status">Opacity OnChange: {opacity}</pre>
 </div>

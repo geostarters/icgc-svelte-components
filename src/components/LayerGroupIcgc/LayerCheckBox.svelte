@@ -1,14 +1,12 @@
 <script>
-  import { getContext } from "svelte";
   import Checkbox from "@smui/checkbox";
   import FormField from "@smui/form-field";
   export let activated = true;
   export let item;
+  export let layersValue;
 
-  const activateLayer = getContext("activateLayer");
   function activateTheLayer(item, activated) {
-    // activateLayer(item,activated)
-    console.log("activateGroup:", item.label, activated);
+    layersValue = `${item.label} : ${activated}`;
   }
 
 </script>
@@ -21,7 +19,6 @@
     font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;
   }
-
   @media (max-width: 624px) {
     .labels {
       font-weight: 500;

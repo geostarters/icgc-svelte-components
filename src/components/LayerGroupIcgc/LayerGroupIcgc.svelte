@@ -5,9 +5,11 @@
   export let layer;
   let display = false;
   let activated = true;
+  let totValue;
+  let layersValue;
+
   function activateTheLayerGroup(layer, activated) {
-    // activateLayerGroup(layer, activated)
-    console.log("activateGroup:", layer.groupLabel, activated);
+    totValue = `${layer.groupLabel} : ${activated}`;
   }
   function colapseGroup() {
     display = !display;
@@ -21,7 +23,6 @@
     padding-bottom: 10px;
     font-family: Arial, Helvetica, sans-serif;
   }
-
   .selectBox {
     position: relative;
     cursor: pointer;
@@ -30,12 +31,10 @@
     margin: 0px !important;
     font-size: smaller;
   }
-
   .selectBox select {
     width: 100%;
     font-weight: bold;
   }
-
   .checkboxes {
     /* border: 1px #dadada solid; */
     background-color: #fff;
@@ -44,13 +43,11 @@
     padding-right: 30px;
     width: 80%;
   }
-
   .headCheck {
     font-size: 14px;
     font-weight: bold;
     color: rgb(0, 0, 0);
   }
-
   select {
     font-family: inherit;
     font-size: inherit;
@@ -83,7 +80,6 @@
           <div>
             <FormField>
               <Checkbox
-                indeterminate={true}
                 bind:checked={activated}
                 class="indentedfield"
                 on:change={activateTheLayerGroup(layer, activated)} />
@@ -94,9 +90,11 @@
         {/if}
 
         {#each layer.items as item, index}
-          <LayerCheckBox {item} {activated} />
+          <LayerCheckBox {item} {activated} bind:layersValue />
         {/each}
       </div>
     {/if}
   </div>
 </form>
+<pre class="status">Group OnChange: {totValue}</pre>
+<pre class="status">Layers OnChange: {layersValue}</pre>
