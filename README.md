@@ -1,10 +1,14 @@
 # @geostarters/icgc-svelte-components
 
+[![npm version](https://badge.fury.io/js/%40geostarters%2Freact-components.svg)](https://badge.fury.io/js/%40geostarters%2Freact-components)
+[![Build Status Linux](https://travis-ci.org/geostarters/icgc-svelte-components.svg?branch=master)](https://travis-ci.org/geostarters/icgc-svelte-components)
 
-    - Create components with Svelte
-    - Generate a StoryBook 
-    - Publish the components via NPM
-    - Reuse the components in other applications
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+
+A lib of Svelte Components
+<a href="https://geostarters.github.io/icgc-svelte-components" target="_blank">https://geostarters.github.io/icgc-svelte-components</a>
+   
 
 ## To use components
 
@@ -32,7 +36,7 @@ Svelte code
   ```<LogoIcgc/>```
 
   *Properties*
-```bash
+```svelte
   type: "color"|| white;
   href :url to link || "https://www.icgc.cat";
   src : url to logo || default url logos;
@@ -43,7 +47,7 @@ Svelte code
   ```<ButtonIcgc/>```
 
   *Properties*
-```bash
+```svelte
    style : css style || "background: #c8ffe7";
 ```
 <hr>
@@ -51,7 +55,7 @@ Svelte code
 ```<LayerTreeIcgc/>```
 
   *Properties*
-```bash
+```svelte
    mapLayersArray : layers array || [
         { id: "building", name: "Edificis", checked: true },
         { id: "place", name: "Llocs", checked: false },
@@ -59,7 +63,7 @@ Svelte code
     ];
 ```
 *Events*
-```bash
+```svelte
    on:change={ }
 ```
 
@@ -68,7 +72,7 @@ Svelte code
 ```<OverLayersIcgc/>```
 
   *Properties*
-```bash
+```svelte
    layerTree : layers array || [
         	{
 			groupLabel: "Group 1",
@@ -112,7 +116,7 @@ Svelte code
     ];
 ```
 *Events*
-```bash
+```svelte
    on:change={ }
    on:click={}
 ```
@@ -122,7 +126,7 @@ Svelte code
   ```<SliderOpacityIcgc/>```
 
   *Properties*
-```bash
+```svelte
       type="range"
       min="0"
       max="100"
@@ -130,10 +134,17 @@ Svelte code
       value="50";
 ```
 *Events*
-```bash
+```svelte
    on:change={ }
 ```
 <hr>
+
+## Whit this repo
+
+    - Create components with Svelte
+    - Generate a StoryBook 
+    - Publish the components via NPM
+    - Reuse the components in other applications
 
 
 ## To develope components
