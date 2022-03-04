@@ -60,9 +60,7 @@ Svelte sample code
 ```
 <hr>
 
-```javascript
-<LayerTreeIcgc/>
-```
+```<LayerTreeIcgc/>```
 
   *Properties*
 ```javascript
