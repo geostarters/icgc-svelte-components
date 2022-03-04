@@ -1,12 +1,11 @@
 # @geostarters/icgc-svelte-components
 
 [![npm version](https://badge.fury.io/js/%40geostarters%2Ficgc-svelte-components.svg)](https://badge.fury.io/js/%40geostarters%2Ficgc-svelte-components)
-
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
 A lib of Svelte Components
-<a href="https://geostarters.github.io/icgc-svelte-components" target="_blank">https://geostarters.github.io/icgc-svelte-components</a>
+<a href="https://geostarters.github.io/icgc-svelte-components/public/index.html" target="_blank">View demo</a>
    
 
 ## To use components
