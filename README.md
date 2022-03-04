@@ -5,7 +5,7 @@
 
 
 A lib of Svelte Components
-<a href="https://geostarters.github.io/icgc-svelte-components/public/index.html" target="_blank">View demo</a>
+
    
 
 ## To use components
@@ -34,6 +34,9 @@ Svelte sample code
 
  <SliderOpacityIcgc />
 ```
+
+
+<a href="https://geostarters.github.io/icgc-svelte-components/public/index.html" target="_blank">View demo</a>
 
 ### Components
 
