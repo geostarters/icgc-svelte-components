@@ -5,6 +5,7 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import css from "rollup-plugin-css-only";
 import copy from "rollup-plugin-copy-assets";
+
 const pkg = require("./package.json");
 const production = !process.env.ROLLUP_WATCH;
 
@@ -50,11 +51,15 @@ export default {
       compilerOptions: {
         // enable run-time checks when not in production
         dev: !production,
+        css: (css) => {
+          css.write('public/build/bundle.css');
+        }
       },
+      emitCss: true,
     }),
     // we'll extract any component CSS out into
     // a separate file - better for performance
-    css({ output: "bundle.css" }),
+    css({ output: "extra.css" }),
 
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In
