@@ -5,7 +5,8 @@
   import OverLayersIcgc from "./components/LayerGroupIcgc/OverLayersIcgc.svelte";
   import SliderOpacityIcgc from "./components/SliderOpacityIcgc.svelte";
   import LayoutGrid, { Cell } from "@smui/layout-grid";
-  export let name;
+  import {isWithinCat} from "./components/CommonIcgc.svelte";
+ 
   let selected = ["water"];
   let item = "Layer1";
   let mapLayersArray = [
@@ -58,6 +59,12 @@
     console.info(e.detail);
     change = `${e.detail.id} : ${e.detail.checked}`;
   }
+
+  
+//map.getBounds().toArray()
+  console.info(isWithinCat([1.4622,41.7139 ,1.8117 ,42.0330]));
+
+
 </script>
 <main>
   <div style="background-color:#F59E1B">

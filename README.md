@@ -6,7 +6,6 @@
 
 A lib of Svelte Components
 
-   
 
 ## To use components
 
@@ -145,6 +144,19 @@ Svelte sample code
 ```javascript
    on:change={ }
 ```
+<hr>
+
+## Common functions 
+
+```
+  import  {isWithinCat,getEmptyGeoJSON} from "@geostarters/icgc-svelte-components";
+
+  isWithinCat([1.4622,41.7139 ,1.8117 ,42.0330])
+  
+```
+
+[COMMON DOCS](Commond.md)
+
 <hr>
 
 ## Whit this repo
