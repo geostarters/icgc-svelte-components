@@ -152,10 +152,10 @@ Svelte sample code
   import  {isWithinCat,getEmptyGeoJSON} from "@geostarters/icgc-svelte-components";
 
   isWithinCat([1.4622,41.7139 ,1.8117 ,42.0330])
-  
+
 ```
 
-[COMMON DOCS](Commond.md)
+[COMMON DOCS](Common.md)
 
 <hr>
 
